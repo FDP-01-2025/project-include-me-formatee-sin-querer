@@ -1,21 +1,21 @@
 #include <iostream>
+
 using namespace std;
 
-int temp(int seconds=5){
+void waitasecond(){
 
-    for (int i = seconds; i> 0; i-- ){
-        cout<<i<<" seconds" <<endl;
-     for (int j = 0; j> 10000000000;j++ ){
-        
-    }   
-    }
-    cout<<"time!"<<endl;
+for (int i=0; i<100000000; i++){
+/*funtion for spend the time*/
 }
-int main(){
+}
+    
+int main (){
+for (int i = 5; i>0; i--){
 
-int seconds=6;
+    cout<<"seconds "<< i <<endl;
+    waitasecond();
+}               
 
-temp(seconds);
+cout<<"Its time!"<<endl;
 
-    return 0;
 }
