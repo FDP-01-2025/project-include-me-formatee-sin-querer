@@ -14,7 +14,7 @@ void menuGame() {
         switch (option) {
         case 1:
             cout << "___________________________________" << endl;
-            option2 = 0; 
+            option2 = 0; // reinicia niveles al volver a jugar
             while (option2 != 7) {
                 cout << "\n-------- Levels ---------" << endl;
                 cout << "1. Level 1" << endl;
