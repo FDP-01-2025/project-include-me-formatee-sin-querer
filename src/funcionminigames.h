@@ -54,3 +54,26 @@ void minigame2() {
         cout << "Buena suerte para la proxima!" << endl;
     }
 }
+
+#include <funciontime.h>
+void minigame3(){
+    cout<<"Vamos a usar los reflejos ahora para ver que tan rapido eres"<<endl;
+    while (true)
+    {
+        int start;
+        cout<<"presiona el numero 1 si estas listo"<<endl;
+        cin>>start;
+
+        switch (start)
+        {
+        case 1:
+            /* code */
+            break;
+        
+        default:
+        cout<<"porfavor elija la opcion que se le indico"<<endl;
+            break;
+        }
+    }
+    
+}
