@@ -10,30 +10,30 @@ const int TOTAL_LEVELS = 9;
 // Cada fila es un nivel con 7 palabras
 // Las palabras se vuelven progresivamente más difíciles en cada nivel
 char levels[TOTAL_LEVELS][WORDS_BY_LEVEL][WORD_SIZE] = {
-    {"cat", "dog", "sun", "red", "hat", "run", "pen"},                                                                          // level 1
-    {"tree", "milk", "book", "fish", "game", "road", "jump"},                                                                   // level 2
-    {"flower", "jungle", "yellow", "father", "magic", "house", "light"},                                                        // level 3
-    {"crystal", "border", "laptop", "window", "secret", "bottle", "animal"},                                                    // level 4
-    {"keyboard", "mountain", "freedom", "plastic", "evening", "blanket", "thunder"},                                            // level 5
-    {"mixture", "awkward", "volcano", "blanket", "texture", "journey", "silence"},                                              // level 6
-    {"reaction", "daughter", "pressure", "whisper", "luggage", "circus", "fortune"},                                            // level 7
-    {"dangerous", "knowledge", "invisible", "discovery", "adventure", "triangle", "architect"},                                 // level 8
-    {"misunderstanding", "responsibility", "international", "communication", "independence", "satisfaction", "transformation"}, // level 9
+    {"cat", "dog", "sun", "red", "hat", "run", "pen"},                                                                          // nivel 1
+    {"tree", "milk", "book", "fish", "game", "road", "jump"},                                                                   // nivel 2
+    {"flower", "jungle", "yellow", "father", "magic", "house", "light"},                                                        // nivel 3
+    {"crystal", "border", "laptop", "window", "secret", "bottle", "animal"},                                                    // nivel 4
+    {"keyboard", "mountain", "freedom", "plastic", "evening", "blanket", "thunder"},                                            // nivel 5
+    {"mixture", "awkward", "volcano", "blanket", "texture", "journey", "silence"},                                              // nivel 6
+    {"reaction", "daughter", "pressure", "whisper", "luggage", "circus", "fortune"},                                            // nivel 7
+    {"dangerous", "knowledge", "invisible", "discovery", "adventure", "triangle", "architect"},                                 // nivel 8
+    {"misunderstanding", "responsibility", "international", "communication", "independence", "satisfaction", "transformation"}, // nivel 9
 };
 
 // Compara dos palabras carácter por carácter
 bool comparewords(const char word1[], const char word2[])
 {
-    // Loop until the end of either word
+   // Bucle hasta el final de cualquiera de las dos palabras
     for (int i = 0; word1[i] != '\0' || word2[i] != '\0'; i++)
     {
-        // If characters are different, the words don't match
+        // Si los caracteres son diferentes, las palabras no coinciden
         if (word1[i] != word2[i])
         {
             return false;
         }
     }
-    // If loop ends, words are equal
+    // Si el bucle termina, las palabras son iguales
     return true;
 }
 
