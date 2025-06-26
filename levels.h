@@ -37,23 +37,24 @@ bool comparewords(const char word1[], const char word2[])
     return true;
 }
 
-// Plays one level of the typing game
+// Juega un nivel del juego de mecanografía
+
 int playlevel(int level)
 {
-    char entry[WORD_SIZE]; // Stores player's input
-    int points = 0;        // Tracks correct answers
+    char entry[WORD_SIZE]; // Almacena la entrada del jugador
+    int points = 0;        // Lleva el control de las respuestas correctas
 
-    // Iterate over all words in the current level
+    // Iterar sobre todas las palabras en el nivel actual
     for (int i = 0; i < WORDS_BY_LEVEL; i++)
     {
-        // Show the word to type
+        // Muestra la palabra a escribir
         cout << "word: " << levels[level][i] << endl;
 
-        // Ask the player to type the word
+        // Pide al jugador que escriba la palabra
         cout << "write: " << endl;
         cin >> entry;
 
-        // Check if input matches the word
+        // Verifica si la entrada coincide con la palabra
         if (comparewords(levels[level][i], entry))
         {
             points++;
@@ -61,11 +62,11 @@ int playlevel(int level)
         }
         else
         {
-            // Show correct word if input was wrong
+            // Muestra la palabra correcta si la entrada fue incorrecta
             cout << "incorrect! was:" << levels << levels[level][i];
         }
     }
 
-    // Display result for the level
+    // Muestra el resultado del nivel
     cout << "level " << (level + 1) << " completed. Points: " << points << " / " << WORDS_BY_LEVEL << "\n";
-    return points; // Return score for this level
+    return points; // Devuelve la puntuación de este nivel
