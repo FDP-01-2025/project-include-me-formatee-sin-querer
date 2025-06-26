@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
 
-// Define constants for word size, words per level, and total levels
+// Definir constantes para el tamaño de palabra, palabras por nivel y niveles totales
 const int WORD_SIZE = 17;
 const int WORDS_BY_LEVEL = 7;
 const int TOTAL_LEVELS = 9;
 
-// 2D array with words grouped by level
-// each row is a level with 7 words
-// (words get progressively harder per level)
+// Arreglo con palabras agrupadas por nivel
+// Cada fila es un nivel con 7 palabras
+// Las palabras se vuelven progresivamente más difíciles en cada nivel
 char levels[TOTAL_LEVELS][WORDS_BY_LEVEL][WORD_SIZE] = {
     {"cat", "dog", "sun", "red", "hat", "run", "pen"},                                                                          // level 1
     {"tree", "milk", "book", "fish", "game", "road", "jump"},                                                                   // level 2
@@ -21,7 +21,7 @@ char levels[TOTAL_LEVELS][WORDS_BY_LEVEL][WORD_SIZE] = {
     {"misunderstanding", "responsibility", "international", "communication", "independence", "satisfaction", "transformation"}, // level 9
 };
 
-// Compares two words character by character
+// Compara dos palabras carácter por carácter
 bool comparewords(const char word1[], const char word2[])
 {
     // Loop until the end of either word
