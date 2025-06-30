@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream> // Librería para entrada y salida
 
 using namespace std;
 //funcion para esperar un segundo
@@ -10,8 +10,8 @@ void waitASecond() {
 //va disminuyendo haciendo una espera por el waitASecond
 void countdown() {
     for (int i = 10; i > 0; i--) {
-        cout << "seconds " << i << endl;
+        cout << "segundos " << i << endl;
         waitASecond();
     }
-    cout << "Its time!" << endl;
+    cout << "Se acabo el tiempo!" << endl;
 }

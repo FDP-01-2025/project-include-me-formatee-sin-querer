@@ -5,20 +5,20 @@
 #include "minijuegos.h"
 using namespace std;
 
-const int WORD_SIZE = 17;
+const int WORD_SIZE = 24;
 const int WORDS_BY_LEVEL = 7;
 const int TOTAL_LEVELS = 9;
 
 char levels[TOTAL_LEVELS][WORDS_BY_LEVEL][WORD_SIZE] = {
-    {"cat", "dog", "sun", "red", "hat", "run", "pen"},
-    {"tree", "milk", "book", "fish", "game", "road", "jump"},
-    {"flower", "jungle", "yellow", "father", "magic", "house", "light"},
-    {"crystal", "border", "laptop", "window", "secret", "bottle", "animal"},
-    {"keyboard", "mountain", "freedom", "plastic", "evening", "blanket", "thunder"},
-    {"mixture", "awkward", "volcano", "blanket", "texture", "journey", "silence"},
-    {"reaction", "daughter", "pressure", "whisper", "luggage", "circus", "fortune"},
-    {"dangerous", "knowledge", "invisible", "discovery", "adventure", "triangle", "architect"},
-    {"misunderstanding", "responsibility", "international", "communication", "independence", "satisfaction", "transformation"},
+    {"sol", "pan", "flor", "mar", "luz", "voz", "nube"},
+    {"cielo", "perro", "libro", "silla", "nino", "verde", "dulce"},
+    {"camino", "raton", "estrella", "jardin", "hojas", "puerta", "sonido"},
+    {"ventana", "montana", "cuaderno", "caballo", "carretera", "invierno", "espejo"},
+    {"murcielago", "dificultad", "crepusculo", "fosforo", "sabiduria", "albahaca", "caracter"},
+    {"paralelepipedo", "murmullo", "hiperbole", "transversal", "holgazan", "efimero", "anfitrion"},
+    {"otorrinolaringologo", "cauterizacion", "subconsciente", "anticonstitucional", "circunferencia", "desenlace", "incongruencia"},
+    {"electroencefalograma", "desoxirribonucleico", "inconstitucionalidad", "invertebrado", "indestructible", "desenmascaramiento", "infalsificable"},
+    {"anticonstitucionalmente", "ininteligibilidad", "desafortunadamente", "transustanciacion", "incomprehensibilidad", "otorrinolaringologia", "descontextualizacion"},
 };
 
 bool comparewords(const char word1[], const char word2[]) {
@@ -35,18 +35,18 @@ int playlevel(int level) {
     int points = 0;
 
     for (int i = 0; i < WORDS_BY_LEVEL; i++) {
-        cout << "word: " << levels[level][i] << endl;
-        cout << "write: ";
+        cout << "palabra: " << levels[level][i] << endl;
+        cout << "escribe: ";
         cin >> entry;
         if (comparewords(levels[level][i], entry)) {
             points++;
-            cout << "correct" << endl;
+            cout << "correcto" << endl;
         } else {
-            cout << "incorrect! was: " << levels[level][i] << endl;
+            cout << "incorrecto! era: " << levels[level][i] << endl;
         }
     }
 
-    cout << "level " << (level + 1) << " completed. Points: " << points << " / " << WORDS_BY_LEVEL << "\n";
+    cout << "nivel " << (level + 1) << " completado. Puntos: " << points << " / " << WORDS_BY_LEVEL << "\n";
 
      // Mostrar minijuego después del nivel 3, 6 y 9
     if (level == 2) {
