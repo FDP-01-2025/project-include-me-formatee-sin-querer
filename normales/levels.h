@@ -48,7 +48,7 @@ int playlevel(int level)
     for (int i = 0; i < WORDS_BY_LEVEL; i++)
     {
         // Muestra la palabra a escribir
-        cout << "word: " << levels[level][i] << endl;
+        cout << "incorrect! was: " << levels[level][i] << endl;
 
         // Pide al jugador que escriba la palabra
         cout << "write: " << endl;
