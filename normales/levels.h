@@ -63,7 +63,8 @@ int playlevel(int level)
         else
         {
             // Muestra la palabra correcta si la entrada fue incorrecta
-            cout << "incorrect! was:" << levels << levels[level][i];
+            cout << "incorrect! was: " << levels[level][i] << endl;
+
         }
     }
 
