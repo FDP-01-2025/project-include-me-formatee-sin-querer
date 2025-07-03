@@ -188,6 +188,9 @@ Este diseño modular y organizado facilita el mantenimiento y ampliación del ju
 
 2. **Nombre completo:** [Robert Stanley Colocho Andrade]  
    **Carnet:** [00054625]
+   
+3. **Nombre completo:** [Devora Michel Galicia Castro]  
+   **Carnet:** [00097325]
 
 ## Instrucciones de Ejecución
 
