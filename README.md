@@ -225,11 +225,11 @@ Todo se maneja mediante menús e interacción por consola, haciendo el juego sim
    ```bash
    g++ main.cpp -o typemaster
 
-6. en windows:
+6. 
 ```bash
+   en windows:
    ./typemaster.exe
 
-7. en linux:
-```bash
+   en linux:
    ./typeaster
 
