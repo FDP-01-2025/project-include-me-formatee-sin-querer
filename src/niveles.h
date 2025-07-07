@@ -63,12 +63,13 @@ int playlevel(int level)
     }
 
     // Muestra resultado del nivel
-    cout << "nivel " << (level + 1) << " completado. Puntaje: " << points << " puntos" << endl;
+    cout << "nivel " << (level + 1) << " completado. Puntaje: " << points << " puntos"<<endl;
 
     // Mostrar minijuego después del nivel 3, 6 y 9 y sumar sus puntajes si es que se gana
     if (level == 2)
     {
         points += minigame1();
+
     }
     else if (level == 5)
     {
@@ -81,5 +82,6 @@ int playlevel(int level)
 
     return points; // Retorna el puntaje obtenido en el nivel
 }
+
 
 #endif
