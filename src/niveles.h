@@ -1,5 +1,5 @@
-#ifndef NIVELES_H
-#define NIVELES_H
+#ifndef LEVELS_H
+#define LEVELS_H
 
 #include <iostream>
 #include "minijuegos.h" // Se incluyen los minijuegos
@@ -40,7 +40,7 @@ bool comparewords(const char word1[], const char word2[])
 int playlevel(int level)
 {
     char entry[WORD_SIZE];
-    int points = 0; // Contador de palabras correctas
+    int points = 0; // Puntaje acumulado
 
     // Recorre las 7 palabras del nivel
     for (int i = 0; i < WORDS_BY_LEVEL; i++)
@@ -52,33 +52,36 @@ int playlevel(int level)
         // Compara palabra original con lo que escribió el usuario
         if (comparewords(levels[level][i], entry))
         {
-            points++;
+            points += 10; // Palabra correcta suma 10 puntos
             cout << "\033[1;32mcorrecto\033[0m" << endl;
         }
         else
         {
+            points -= 20; // Palabra incorrecta resta 20 puntos
             cout << "\033[31mincorrecto! era:\033[0m " << levels[level][i] << endl;
         }
     }
 
     // Muestra resultado del nivel
-    cout << "nivel " << (level + 1) << " completado. Puntos: " << points << " / " << WORDS_BY_LEVEL << "\n";
+    cout << "nivel " << (level + 1) << " completado. Puntaje: " << points << " puntos"<<endl;
 
-    // Mostrar minijuego después del nivel 3, 6 y 9
+    // Mostrar minijuego después del nivel 3, 6 y 9 y sumar sus puntajes si es que se gana
     if (level == 2)
     {
-        minigame1();
+        points += minigame1();
+
     }
     else if (level == 5)
     {
-        minigame2();
+        points += minigame2();
     }
     else if (level == 8)
     {
-        minigame3();
+        points += minigame3();
     }
 
-    return points; // Retorna la puntuación obtenida
+    return points; // Retorna el puntaje obtenido en el nivel
 }
+
 
 #endif

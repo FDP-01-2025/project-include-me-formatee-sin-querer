@@ -1,3 +1,5 @@
+#ifndef TIME_H
+#define TIME_H
 #include <iostream> // Librería para entrada y salida
 
 using namespace std;
@@ -18,3 +20,5 @@ void countdown()
     }
     cout << "Se acabo el tiempo!" << endl;
 }
+
+#endif
