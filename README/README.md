@@ -36,6 +36,7 @@ Este juego está ambientado en un entorno educativo y de entrenamiento mental. E
 - Lenguaje: **C++**
 - Estructura modular con múltiples archivos `.h`:
 - `menu.h`: Controla la navegación y selección de niveles.
+- `entero.h`:es una funcion para manejar los posibles errores de datos invalidos en el codigo.
 - `niveles.h`: Contiene las palabras por nivel y la lógica de evaluación.
 - `minijuegos.h`: Incluye los tres minijuegos.
 - `guardar.h:` Gestión completa de partidas mediante archivos.
@@ -43,6 +44,10 @@ Este juego está ambientado en un entorno educativo y de entrenamiento mental. E
 - Lógica central agrupada en `main.cpp`, que solo llama a `menuGame()` para mantener el código limpio y organizado.
 - No se utilizan librerías externas, lo que permite su compilación en cualquier entorno estándar de C++.
 - Asegura portabilidad y legibilidad del código con comentarios claros en cada archivo.
+
+![Imagen del menu](menu2.png)
+![Imagen del nivel 3](level3.png)
+
 
 ## 📄 Descripción del Proyecto
 
