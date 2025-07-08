@@ -1,5 +1,5 @@
 #include <iostream>
-#include "menu.h" // Incluye el menú del juego
+#include "src/menu.h" // Incluye el menú del juego
 using namespace std;
 
 int main()
