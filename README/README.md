@@ -8,8 +8,8 @@ Este juego está ambientado en un entorno educativo y de entrenamiento mental. E
 - El jugador selecciona desde un menú el nivel que desea jugar.
 - Cada nivel contiene 7 palabras que deben ser escritas correctamente.
 - Por cada acierto, el jugador gana 10 puntos, si falla pierde 20.
-- Al completar el nivel, se muestra el total de puntos.
 - Cada 3 niveles (nivel 3, 6 y 9), se activa un **minijuego** que puede otorgar puntos adicionales.
+- Al completar el nivel, se muestra el total de puntos.
 
 ## 🎯 Idea General de la Jugabilidad
 - Juego de consola basado en **entrada de texto**.
