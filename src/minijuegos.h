@@ -114,23 +114,19 @@ int minigame3()
                 auto end_time = high_resolution_clock::now();
                 auto duration1 = duration_cast<milliseconds>(end_time - start_time).count();
 
-                // Verifica si la palabra fue escrita correctamente
                 if (answer2 == words[j])
                 {
-                    cout << "\033[1;32mCorrecto. Tiempo:\033[0m " << duration1 << " ms.\n"
-                         << endl;
+                    cout << "\033[1;32mCorrecto. Tiempo:\033[0m " << duration1 << " ms.\n" << endl;
                 }
                 else
                 {
                     cout << "\033[31mIncorrecto. La palabra correcta era: \033[0m" << words[j] << endl;
                     cout << "Tu respuesta: " << answer2 << endl;
-                    cout << "Tiempo: " << duration1 << " ms.\n"
-                         << endl;
+                    cout << "Tiempo: " << duration1 << " ms.\n" << endl;
                     allCorrect = false;
                 }
             }
 
-            // Verifica si todas las respuestas fueron correctas
             if (allCorrect)
             {
                 cout << "\033[1;32m¡Excelente! Completaste todo correctamente. Recibes 100 puntos extra.\033[0m" << endl;
@@ -144,9 +140,7 @@ int minigame3()
         }
         else
         {
-            // Mensaje de error si no se presiona el número 1
-            cout << "Por favor elige la opción que se te indicó" << endl
-                 << endl;
+            cout << "Por favor elige la opción que se te indicó" << endl << endl;
         }
     }
 }

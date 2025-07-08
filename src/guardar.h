@@ -6,116 +6,79 @@
 using namespace std;
 
 // Estructura que representa el estado de un jugador
-struct Game
-{
+struct Game {
     string playerName;
     int level;
     int score;
 };
 
 // Guarda una nueva partida en el archivo
-void saveGame(const Game &g)
-{
+void saveGame(const Game& g) {
     ifstream inFile("games.txt");
     ofstream outFile("temp.txt");
     Game existing;
     bool replaced = false;
 
     // Reescribe todo excepto el jugador duplicado
-    if (inFile.is_open() && outFile.is_open())
-    {
-        while (inFile >> existing.playerName >> existing.level >> existing.score)
-        {
-            if (existing.playerName == g.playerName)
-            {
+    if (inFile.is_open() && outFile.is_open()) {
+        while (inFile >> existing.playerName >> existing.level >> existing.score) {
+            if (existing.playerName == g.playerName) {
                 outFile << g.playerName << " " << g.level << " " << g.score << endl;
                 replaced = true;
-            }
-            else
-            {
+            } else {
                 outFile << existing.playerName << " " << existing.level << " " << existing.score << endl;
             }
         }
 
         // Si no lo reemplazó, es un jugador nuevo
-        if (!replaced)
-        {
+        if (!replaced) {
             outFile << g.playerName << " " << g.level << " " << g.score << endl;
         }
 
+        // Asegurar que se escriban todos los datos antes de cerrar
+        outFile.flush();
         inFile.close();
         outFile.close();
-        remove("games.txt");
-        rename("temp.txt", "games.txt");
 
-        cout << "Progreso guardado para el jugador: " << g.playerName << endl;
-    }
-    else
-    {
-        cout << "Error al abrir los archivos para guardar." << endl;
+        // Verificar que los cambios se apliquen correctamente
+        if (remove("games.txt") != 0) {
+            cout << "⚠️ Error al eliminar el archivo original." << endl;
+        } else if (rename("temp.txt", "games.txt") != 0) {
+            cout << "⚠️ Error al renombrar el archivo temporal." << endl;
+        } else {
+            cout << "✅ Progreso guardado para el jugador: " << g.playerName << endl;
+        }
+    } else {
+        cout << "❌ Error al abrir los archivos para guardar." << endl;
     }
 }
+
 
 // Muestra todas las partidas guardadas
-void showGames()
-{
+void showGames() {
     ifstream file("games.txt");
     Game g;
 
-    if (file.is_open())
-    {
-        cout << "\n--- Lista de Partidas ---\n";
-        while (file >> g.playerName >> g.level >> g.score)
-        {
-            cout << "Jugador: " << g.playerName
-                 << ", Nivel: " << g.level
-                 << ", Puntaje: " << g.score << endl;
-        }
-        file.close();
-    }
-    else
-    {
-        cout << "Error al abrir el archivo.\n";
-    }
-}
-
-// Busca una partida por nombre
-void searchGame()
-{
-    ifstream file("games.txt");
-    Game g;
-    string search;
-    bool found = false;
-
-    cout << "Ingrese nombre del jugador a buscar: ";
-    cin >> search;
-
-    if (file.is_open())
-    {
-        while (file >> g.playerName >> g.level >> g.score)
-        {
-            if (g.playerName == search)
-            {
-                cout << "Partida encontrada: " << g.playerName
+    if (file.is_open()) {
+        if (file.peek() == EOF) {
+            cout << "\n📁 No hay partidas guardadas.\n";
+        } else {
+            cout << "\n--- Lista de Partidas ---\n";
+            while (file >> g.playerName >> g.level >> g.score) {
+                cout << "Jugador: " << g.playerName 
                      << ", Nivel: " << g.level
                      << ", Puntaje: " << g.score << endl;
-                found = true;
-                break;
             }
         }
         file.close();
-        if (!found)
-            cout << "Partida no encontrada.\n";
-    }
-    else
-    {
-        cout << "Error al abrir el archivo.\n";
+    } else {
+        cout << "❌ Error al abrir el archivo.\n";
     }
 }
 
+
 // Carga una partida por nombre y devuelve el objeto Game
-Game loadGame()
-{
+Game loadGame() {
     ifstream file("games.txt");
     Game g;
     string search;
@@ -124,22 +87,24 @@ Game loadGame()
     cout << "Ingrese el nombre del jugador para cargar su partida: ";
     cin >> search;
 
-    if (file.is_open())
-    {
-        while (file >> g.playerName >> g.level >> g.score)
-        {
-            if (g.playerName == search)
-            {
-                cout << "Partida cargada exitosamente.\n";
-                found = true;
-                break;
+    if (file.is_open()) {
+        if (file.peek() == EOF) {
+            cout << "⚠️ El archivo de partidas está vacío." << endl;
+        } else {
+            while (file >> g.playerName >> g.level >> g.score) {
+                if (g.playerName == search) {
+                    cout << "✅ Partida cargada exitosamente.\n";
+                    found = true;
+                    break;
+                }
             }
         }
         file.close();
+    } else {
+        cout << "❌ No se pudo abrir el archivo games.txt.\n";
     }
 
-    if (!found)
-    {
+    if (!found) {
         cout << "No se encontró la partida. Se devolverán valores por defecto.\n";
         g.playerName = search;
         g.level = 1;
@@ -149,9 +114,9 @@ Game loadGame()
     return g;
 }
 
+
 // Elimina una partida por nombre de jugador
-void deleteGame()
-{
+void deleteGame() {
     ifstream file("games.txt");
     ofstream temp("temp.txt");
     Game g;
@@ -161,33 +126,35 @@ void deleteGame()
     cout << "Ingrese nombre del jugador a eliminar: ";
     cin >> search;
 
-    if (file.is_open() && temp.is_open())
-    {
-        while (file >> g.playerName >> g.level >> g.score)
-        {
-            if (g.playerName != search)
-            {
-                temp << g.playerName << " " << g.level << " " << g.score << endl;
-            }
-            else
-            {
-                deleted = true;
+    if (file.is_open() && temp.is_open()) {
+        if (file.peek() == EOF) {
+            cout << "⚠️ El archivo está vacío. No hay partidas para eliminar.\n";
+        } else {
+            while (file >> g.playerName >> g.level >> g.score) {
+                if (g.playerName != search) {
+                    temp << g.playerName << " " << g.level << " " << g.score << endl;
+                } else {
+                    deleted = true;
+                }
             }
         }
         file.close();
+        temp.flush();
         temp.close();
-        remove("games.txt");
-        rename("temp.txt", "games.txt");
 
-        if (deleted)
-            cout << "Partida eliminada correctamente.\n";
+        if (remove("games.txt") != 0)
+            cout << "❌ Error al eliminar games.txt\n";
+        else if (rename("temp.txt", "games.txt") != 0)
+            cout << "❌ Error al renombrar archivo temporal\n";
+        else if (deleted)
+            cout << "✅ Partida eliminada correctamente.\n";
         else
-            cout << "Jugador no encontrado.\n";
-    }
-    else
-    {
-        cout << "Error al abrir los archivos.\n";
+            cout << "❌ Jugador no encontrado.\n";
+
+    } else {
+        cout << "❌ Error al abrir los archivos.\n";
     }
 }
+
 
 #endif
